@@ -22,7 +22,6 @@ A professional cybersecurity machine learning project that detects brute force a
 - [Exploratory Data Analysis](#exploratory-data-analysis)
 - [Model Performance](#model-performance)
 - [Saved Artifacts](#saved-artifacts)
-- [Repository Structure](#repository-structure)
 - [Installation](#installation)
 - [How to Run](#how-to-run)
 - [Results and Insights](#results-and-insights)
@@ -173,45 +172,23 @@ The training pipeline saves:
 
 These files make it easier to reuse the trained model in another script, notebook, dashboard, or API.
 
-## Repository Structure
-
-```text
-BruteForce-Attack-Detection/
-│
-├── dataset/
-│   └── 02-14-2018.csv
-├── models/
-│   ├── bruteforce_attack_detection_model.pkl
-│   └── feature_scaler.pkl
-├── notebooks/
-│   └── model_training.ipynb
-├── src/
-│   └── train_model.py
-├── requirements.txt
-└── README.md
-```
 
 ## Installation
 
 Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/bruteforce-attack-detection.git
-cd bruteforce-attack-detection
+git clone https://github.com/yourusername/Brute-Force-Attack-Detection-Using-Machine-Learning.git
+cd Brute-Force-Attack-Detection-Using-Machine-Learning
 ```
 
-Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
 
 ## How to Run
 
 Place the dataset file in your working directory or inside a dataset folder, then run:
 
 ```bash
-python train_model.py
+python brute_force_attack_detection.py
 ```
 
 The script will:
