@@ -1,42 +1,254 @@
-# 🛡️ Brute Force Attack Detection Using Machine Learning
+# Brute Force Attack Detection Using Machine Learning
 
-## 📌 Project Overview
-This project focuses on detecting network intrusions, specifically brute force attacks (FTP and SSH), using various machine learning and deep learning algorithms. Since the dataset contains known input features and labels, we utilize a supervised learning classification approach to predict whether incoming network traffic is Normal (Benign) or a Brute force attack.
+![Project Banner](banner.png)
 
-## 📊 Dataset Details
-The data used for this project is from the CSE-CIC-IDS2018 dataset.
-* **File Name:** `02-14-2018.csv`
-* **Source:** Kaggle
-* **Total Records:** 1,048,575 network flow records
-* **Features:** 80 columns in total (79 input features + 1 target variable: `Label`)
-* **Class Distribution:**
-  * `Benign`: ~667k records
-  * `FTP-BruteForce`: ~193k records
-  * `SSH-Bruteforce`: ~187k records
+![Python](https://img.shields.io/badge/Python-3.10+-blue)
+![Scikit-learn](https://img.shields.io/badge/Scikit--learn-ML-orange)
+![Cybersecurity](https://img.shields.io/badge/Domain-Cybersecurity-red)
+![Dataset](https://img.shields.io/badge/Dataset-CSE--CIC--IDS2018-green)
+![Status](https://img.shields.io/badge/Status-Completed-success)
+![Task](https://img.shields.io/badge/Task-Multi--Class%20Classification-purple)
 
-## 🧠 Algorithms Evaluated
-We evaluate a total of 4 traditional machine learning algorithms and 2 deep learning algorithms.
+A professional cybersecurity machine learning project that detects brute force activity in network traffic using the **CSE-CIC-IDS2018** dataset. The system compares four machine learning models and two neural network models to classify traffic as **Benign**, **FTP-BruteForce**, or **SSH-Bruteforce**.
 
-### Traditional Machine Learning
-1. **Logistic Regression:** A simple baseline model that works well for binary classification.
-2. **Decision Tree:** A highly interpretable tree-based model.
-3. **Random Forest:** An ensemble learning method that combines multiple decision trees and handles large datasets effectively.
-4. **Support Vector Machine (SVM):** Effective for high-dimensional data as it finds the optimal separating hyperplane.
+## Table of Contents
 
-### Deep Learning
-5. **Artificial Neural Network (ANN):** A fully connected neural network capable of capturing complex patterns in network traffic.
-6. **Deep Neural Network (DNN):** Features multiple hidden layers for superior feature learning capabilities.
+- [Project Overview](#project-overview)
+- [Why This Project Matters](#why-this-project-matters)
+- [Dataset Summary](#dataset-summary)
+- [Project Workflow](#project-workflow)
+- [Algorithms Used](#algorithms-used)
+- [Tech Stack](#tech-stack)
+- [Exploratory Data Analysis](#exploratory-data-analysis)
+- [Model Performance](#model-performance)
+- [Saved Artifacts](#saved-artifacts)
+- [Repository Structure](#repository-structure)
+- [Installation](#installation)
+- [How to Run](#how-to-run)
+- [Results and Insights](#results-and-insights)
+- [Future Improvements](#future-improvements)
+- [Author](#author)
 
-## 📈 Evaluation Metrics
-The models are strictly evaluated using 6 primary metrics to determine their real-world effectiveness:
-* **Accuracy:** Measures overall correct predictions.
-* **Precision:** Measures how many of the predicted attacks were actually attacks.
-* **Recall (Detection Rate):** Measures how many actual attacks were correctly detected.
-* **F1 Score:** Represents the balance between precision and recall.
-* **Confusion Matrix:** Visually shows the true/false positive and negative prediction results.
-* **ROC-AUC Score:** Measures the model’s ability to distinguish between classes, where a higher AUC indicates a better model.
+## Project Overview
 
-## 🏆 Project Results
-All models performed exceptionally well on the dataset. The **Decision Tree** and **Random Forest** algorithms tied for the highest accuracy at approximately 99.995%. 
+Brute force attacks are a common way attackers try to break into systems by repeatedly testing credentials. In this project, network flow records are analyzed to automatically detect malicious login attempts against FTP and SSH services.
 
-Ultimately, the **Decision Tree** was selected as the best overall model. The trained model and its corresponding data scaler have been successfully saved (`bruteforce_attack_detection_model.pkl` and `feature_scaler.pkl`) for future deployment and predictions.
+This repository implements a complete end-to-end pipeline:
+
+- load and inspect the dataset
+- clean missing and infinite values
+- encode labels
+- scale features
+- train multiple ML and DL models
+- evaluate performance
+- save the best model for deployment use
+
+## Why This Project Matters
+
+In real environments, security analysts need detection systems that are:
+
+- accurate enough to catch attacks
+- fast enough for operational use
+- interpretable enough to explain alerts
+- stable enough to deploy on large traffic volumes
+
+This project shows that classic tree-based models can perform extremely well on structured intrusion detection data without the heavier cost of deeper neural architectures.
+
+## Dataset Summary
+
+**Dataset:** CSE-CIC-IDS2018  
+**File used:** `02-14-2018.csv`  
+**Total records:** 1,048,575  
+**Total columns:** 80  
+**Input features:** 79  
+**Target column:** `Label`
+
+### Target classes
+
+| Class | Approx. Count |
+|---|---:|
+| Benign | 667,626 |
+| FTP-BruteForce | 193,360 |
+| SSH-Bruteforce | 187,589 |
+
+### Example fields in the dataset
+
+- `Dst Port`
+- `Protocol`
+- `Flow Duration`
+- `Tot Fwd Pkts`
+- `Tot Bwd Pkts`
+- `Flow Byts/s`
+- `Pkt Len Mean`
+- `SYN Flag Cnt`
+- `Idle Mean`
+
+These features capture network flow behaviour and help models learn the difference between normal traffic and automated brute force activity.
+
+## Project Workflow
+
+![Workflow](workflow.png)
+
+## Algorithms Used
+
+### Machine Learning
+
+| Model | Purpose |
+|---|---|
+| Logistic Regression | Strong linear baseline for classification |
+| Decision Tree | Interpretable rule-based model |
+| Random Forest | Ensemble model for robust performance |
+| Support Vector Machine | Powerful classifier for complex boundaries |
+
+### Neural Network Models
+
+| Model | Purpose |
+|---|---|
+| ANN | Single hidden-layer neural network |
+| DNN / MLP | Deeper feedforward neural architecture |
+
+## Tech Stack
+
+- **Python**
+- **Pandas**
+- **NumPy**
+- **Matplotlib**
+- **Seaborn**
+- **Scikit-learn**
+- **Joblib**
+
+## Exploratory Data Analysis
+
+The pipeline includes core EDA steps before training:
+
+- dataset shape and column inspection
+- class distribution analysis
+- missing value handling
+- replacement of infinite values
+- correlation analysis on top numeric features
+- confusion matrix visualization after prediction
+
+### Data preprocessing used
+
+1. Remove the `Timestamp` column  
+2. Replace `inf` and `-inf` values with `NaN`  
+3. Drop missing rows  
+4. Encode the `Label` column using `LabelEncoder`  
+5. Apply `StandardScaler` to the feature matrix  
+6. Split the data into train and test sets with an 80/20 ratio  
+
+## Model Performance
+
+The following results come from the trained models in the provided project output.
+
+![Model Accuracy Comparison](model_accuracy_chart.png)
+
+| Model | Accuracy | Precision | Recall | F1 Score |
+|---|---:|---:|---:|---:|
+| Logistic Regression | 0.999588 | 0.999589 | 0.999588 | 0.999589 |
+| Decision Tree | **0.999952** | **0.999952** | **0.999952** | **0.999952** |
+| Random Forest | **0.999952** | **0.999952** | **0.999952** | **0.999952** |
+| SVM | 0.999933 | 0.999933 | 0.999933 | 0.999933 |
+| ANN | 0.999947 | 0.999947 | 0.999947 | 0.999947 |
+| DNN | 0.999943 | 0.999943 | 0.999943 | 0.999943 |
+
+### Best model
+
+**Decision Tree** was selected as the best model in the current pipeline.
+
+Why it stands out:
+
+- top accuracy
+- excellent precision and recall
+- fast inference
+- easy interpretability
+- practical for real-world SOC-style workflows
+
+## Saved Artifacts
+
+The training pipeline saves:
+
+- `bruteforce_attack_detection_model.pkl`
+- `feature_scaler.pkl`
+
+These files make it easier to reuse the trained model in another script, notebook, dashboard, or API.
+
+## Repository Structure
+
+```text
+BruteForce-Attack-Detection/
+│
+├── dataset/
+│   └── 02-14-2018.csv
+├── models/
+│   ├── bruteforce_attack_detection_model.pkl
+│   └── feature_scaler.pkl
+├── notebooks/
+│   └── model_training.ipynb
+├── src/
+│   └── train_model.py
+├── requirements.txt
+└── README.md
+```
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/yourusername/bruteforce-attack-detection.git
+cd bruteforce-attack-detection
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+## How to Run
+
+Place the dataset file in your working directory or inside a dataset folder, then run:
+
+```bash
+python train_model.py
+```
+
+The script will:
+
+- load the dataset
+- preprocess the features
+- train all models
+- evaluate each model
+- print comparison results
+- save the selected best model
+
+## Results and Insights
+
+Key takeaways from this project:
+
+- Tree-based methods performed exceptionally well on this tabular intrusion detection dataset.
+- Decision Tree and Random Forest reached the highest accuracy in the current implementation.
+- Neural network models also performed strongly, but they did not outperform the best tree-based models here.
+- For this task, simpler models can be more operationally useful than deeper networks.
+
+## Future Improvements
+
+This project can be extended by adding:
+
+- hyperparameter tuning with `GridSearchCV` or `RandomizedSearchCV`
+- ROC-AUC comparison for all models
+- feature importance plots for tree-based methods
+- class-wise confusion matrix exports
+- REST API deployment using Flask or FastAPI
+- real-time network monitoring integration
+- Docker support for portable deployment
+- experiment tracking with MLflow or Weights & Biases
+
+## Author
+
+**Santhakumar Parivallal**
+
+---
+
+If this project helped you, give the repository a star and use it as part of your cybersecurity and machine learning portfolio.
