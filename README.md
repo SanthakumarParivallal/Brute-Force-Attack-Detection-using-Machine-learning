@@ -182,6 +182,11 @@ git clone https://github.com/yourusername/Brute-Force-Attack-Detection-Using-Mac
 cd Brute-Force-Attack-Detection-Using-Machine-Learning
 ```
 
+```Install dependencies
+
+pip install pandas numpy matplotlib seaborn scikit-learn joblib
+```
+
 
 ## How to Run
 
