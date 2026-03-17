@@ -1,6 +1,8 @@
 # Brute Force Attack Detection Using Machine Learning
 
-![Project Banner](banner.png)
+<img width="1600" height="500" alt="banner" src="https://github.com/user-attachments/assets/cb9a386f-7772-4e94-bf64-16bc673fb1f4" />
+
+<p align="center">
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue)
 ![Scikit-learn](https://img.shields.io/badge/Scikit--learn-ML-orange)
@@ -8,6 +10,8 @@
 ![Dataset](https://img.shields.io/badge/Dataset-CSE--CIC--IDS2018-green)
 ![Status](https://img.shields.io/badge/Status-Completed-success)
 ![Task](https://img.shields.io/badge/Task-Multi--Class%20Classification-purple)
+
+</p>
 
 A professional cybersecurity machine learning project that detects brute force activity in network traffic using the **CSE-CIC-IDS2018** dataset. The system compares four machine learning models and two neural network models to classify traffic as **Benign**, **FTP-BruteForce**, or **SSH-Bruteforce**.
 
@@ -86,7 +90,8 @@ These features capture network flow behaviour and help models learn the differen
 
 ## Project Workflow
 
-![Workflow](workflow.png)
+<img width="1536" height="1024" alt="workflow" src="https://github.com/user-attachments/assets/27388556-4a00-483c-bfff-83b700cfcffa" />
+
 
 ## Algorithms Used
 
@@ -140,7 +145,8 @@ The pipeline includes core EDA steps before training:
 
 The following results come from the trained models in the provided project output.
 
-![Model Accuracy Comparison](model_accuracy_chart.png)
+<img width="2200" height="1276" alt="model_accuracy_chart" src="https://github.com/user-attachments/assets/77d9911b-3fda-4754-adc9-3e84b7614164" />
+
 
 | Model | Accuracy | Precision | Recall | F1 Score |
 |---|---:|---:|---:|---:|
