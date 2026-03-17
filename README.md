@@ -15,6 +15,8 @@
 
 A professional cybersecurity machine learning project that detects brute force activity in network traffic using the **CSE-CIC-IDS2018** dataset. The system compares four machine learning models and two neural network models to classify traffic as **Benign**, **FTP-BruteForce**, or **SSH-Bruteforce**.
 
+---
+
 ## Table of Contents
 
 - [Project Overview](#project-overview)
@@ -32,6 +34,8 @@ A professional cybersecurity machine learning project that detects brute force a
 - [Future Improvements](#future-improvements)
 - [Author](#author)
 
+---
+
 ## Project Overview
 
 Brute force attacks are a common way attackers try to break into systems by repeatedly testing credentials. In this project, network flow records are analyzed to automatically detect malicious login attempts against FTP and SSH services.
@@ -46,6 +50,8 @@ This repository implements a complete end-to-end pipeline:
 - evaluate performance
 - save the best model for deployment use
 
+---
+
 ## Why This Project Matters
 
 In real environments, security analysts need detection systems that are:
@@ -57,6 +63,8 @@ In real environments, security analysts need detection systems that are:
 
 This project shows that classic tree-based models can perform extremely well on structured intrusion detection data without the heavier cost of deeper neural architectures.
 
+---
+
 ## Dataset Summary
 
 **Dataset:** CSE-CIC-IDS2018  
@@ -65,6 +73,7 @@ This project shows that classic tree-based models can perform extremely well on 
 **Total columns:** 80  
 **Input features:** 79  
 **Target column:** `Label`
+
 
 ### Target classes
 
@@ -88,10 +97,13 @@ This project shows that classic tree-based models can perform extremely well on 
 
 These features capture network flow behaviour and help models learn the difference between normal traffic and automated brute force activity.
 
+---
+
 ## Project Workflow
 
 <img width="1536" height="1024" alt="workflow" src="https://github.com/user-attachments/assets/27388556-4a00-483c-bfff-83b700cfcffa" />
 
+---
 
 ## Algorithms Used
 
@@ -111,6 +123,8 @@ These features capture network flow behaviour and help models learn the differen
 | ANN | Single hidden-layer neural network |
 | DNN / MLP | Deeper feedforward neural architecture |
 
+---
+
 ## Tech Stack
 
 - **Python**
@@ -120,6 +134,8 @@ These features capture network flow behaviour and help models learn the differen
 - **Seaborn**
 - **Scikit-learn**
 - **Joblib**
+
+---
 
 ## Exploratory Data Analysis
 
@@ -140,6 +156,8 @@ The pipeline includes core EDA steps before training:
 4. Encode the `Label` column using `LabelEncoder`  
 5. Apply `StandardScaler` to the feature matrix  
 6. Split the data into train and test sets with an 80/20 ratio  
+
+---
 
 ## Model Performance
 
@@ -169,6 +187,8 @@ Why it stands out:
 - easy interpretability
 - practical for real-world SOC-style workflows
 
+---
+
 ## Saved Artifacts
 
 The training pipeline saves:
@@ -178,6 +198,7 @@ The training pipeline saves:
 
 These files make it easier to reuse the trained model in another script, notebook, dashboard, or API.
 
+---
 
 ## Installation
 
@@ -193,6 +214,7 @@ cd Brute-Force-Attack-Detection-Using-Machine-Learning
 pip install pandas numpy matplotlib seaborn scikit-learn joblib
 ```
 
+---
 
 ## How to Run
 
@@ -211,6 +233,8 @@ The script will:
 - print comparison results
 - save the selected best model
 
+---
+
 ## Results and Insights
 
 Key takeaways from this project:
@@ -219,6 +243,8 @@ Key takeaways from this project:
 - Decision Tree and Random Forest reached the highest accuracy in the current implementation.
 - Neural network models also performed strongly, but they did not outperform the best tree-based models here.
 - For this task, simpler models can be more operationally useful than deeper networks.
+
+---
 
 ## Future Improvements
 
@@ -232,6 +258,8 @@ This project can be extended by adding:
 - real-time network monitoring integration
 - Docker support for portable deployment
 - experiment tracking with MLflow or Weights & Biases
+
+---
 
 ## Author
 
