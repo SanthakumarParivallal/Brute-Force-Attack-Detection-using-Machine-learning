@@ -2,15 +2,15 @@
 
 <img width="1600" height="500" alt="banner" src="https://github.com/user-attachments/assets/cb9a386f-7772-4e94-bf64-16bc673fb1f4" />
 
+---
+
 <p align="center">
-
-![Python](https://img.shields.io/badge/Python-3.10+-blue)
-![Scikit-learn](https://img.shields.io/badge/Scikit--learn-ML-orange)
-![Cybersecurity](https://img.shields.io/badge/Domain-Cybersecurity-red)
-![Dataset](https://img.shields.io/badge/Dataset-CSE--CIC--IDS2018-green)
-![Status](https://img.shields.io/badge/Status-Completed-success)
-![Task](https://img.shields.io/badge/Task-Multi--Class%20Classification-purple)
-
+  <img src="https://img.shields.io/badge/Python-3.10+-blue" alt="Python">
+  <img src="https://img.shields.io/badge/Scikit--learn-ML-orange" alt="Scikit-learn">
+  <img src="https://img.shields.io/badge/Domain-Cybersecurity-red" alt="Cybersecurity">
+  <img src="https://img.shields.io/badge/Dataset-CSE--CIC--IDS2018-green" alt="Dataset">
+  <img src="https://img.shields.io/badge/Status-Completed-success" alt="Status">
+  <img src="https://img.shields.io/badge/Task-Multi--Class%20Classification-purple" alt="Task">
 </p>
 
 A professional cybersecurity machine learning project that detects brute force activity in network traffic using the **CSE-CIC-IDS2018** dataset. The system compares four machine learning models and two neural network models to classify traffic as **Benign**, **FTP-BruteForce**, or **SSH-Bruteforce**.
